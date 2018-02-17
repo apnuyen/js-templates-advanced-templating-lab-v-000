@@ -1,5 +1,4 @@
 function initForm() {
-  //put any page initialization/handlebars initialization here
   let formTemplate = document.getElementById('recipe-form-template').innerHTML
   let template = Handlebars.compile(formTemplate)
 
@@ -7,12 +6,20 @@ function initForm() {
 }
 
 function createRecipe() {
-  let recipe = getRecipevalues()
+  let recipe = getRecipeValues()
   let recipeTemplate = document.getElementById('recipe-template').innerHTML
   let template = Handlebars.compile(recipeTemplate)
   document.getElementById('main').innerHTML = template(recipe)
+}
 
 
+function updateRecipe() {
+  let recipe = getRecipevalues()
+  let recipeTemplate = document.getElementById('recipe-template').innerHTML
+  let template = Handlebars.compile(recipeTemplate)
+
+  document.getElementById('main').innerHTML = template(recipe)
+}
 function displayEditForm() {
   let name = document.getElementById('nameHeader').innerText
   let description = document.getElementById('recipeDescription').innerText
@@ -28,14 +35,6 @@ function displayEditForm() {
   var template = Handlebars.compile(recipeFormTemplate)
 
   document.getElementById('main').innerHTML = template(recipe);
-}
-
-function updateRecipe() {
-  let recipe = getRecipevalues()
-  let recipeTemplate = document.getElementById('recipe-template').innerHTML
-  let template = Handlebars.compile(recipeTemplate)
-
-  document.getElementById('main').innerHTML = template(recipe)
 }
 
 function getRecipevalues() {
